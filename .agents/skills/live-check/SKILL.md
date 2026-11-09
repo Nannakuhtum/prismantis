@@ -14,8 +14,8 @@ Tests prove the tree. Only a real render proves the look.
 3. **Render it, never screenshot.** Window captures are blocked for agents and grab whatever else is open. Instead run the session in a hidden terminal, record every byte it draws, and replay that into xterm.js in headless Chrome. This works with the screen locked and in parallel:
    ```
    npm i -s --prefix <scratch> @xterm/xterm
-   timeout 70 python3 .claude/skills/live-check/capture.py <scratch>/demo.bin <repo> 110 80 '[[45,""]]' claude --plugin-dir <repo> "/prismantis demo"
-   node .claude/skills/live-check/render.mjs <scratch>/demo.bin <scratch>/demo.png 110 80 <scratch>/node_modules/@xterm/xterm
+   timeout 70 python3 .agents/skills/live-check/capture.py <scratch>/demo.bin <repo> 110 80 '[[45,""]]' claude --plugin-dir <repo> "/prismantis demo"
+   node .agents/skills/live-check/render.mjs <scratch>/demo.bin <scratch>/demo.png 110 80 <scratch>/node_modules/@xterm/xterm
    ```
    Then read the PNG. `capture.py` takes the output file, working directory, columns, rows and a JSON list of `[seconds to wait, keys to type]` steps, then the command. Raise the rows to see more of a long reply. `render.mjs` finds Chrome or Chromium itself, or reads `CHROME`. On Windows, ask the person for a Win+Shift+S capture. xterm.js draws no kitty images and no desktop surface, so say those are unchecked.
 4. **Check** column alignment, rule lengths, colors against the theme tokens, wrapping at narrow widths, and that nothing falls back to the engine renderer. A dim line naming `prismantis` in the transcript means a hook was refused; fix that first.

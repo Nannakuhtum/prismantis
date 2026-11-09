@@ -10,7 +10,7 @@ description: Drive an interactive prismantis surface (the setup pane, buttons, a
 ## Setup, once per working copy
 
 ```bash
-.claude/skills/drive-check/drive.sh setup <repo or worktree path>
+.agents/skills/drive-check/drive.sh setup <repo or worktree path>
 ```
 
 Run it again after every edit: it copies the code into the install.
@@ -24,7 +24,7 @@ Three traps it handles, each found the hard way:
 ## Run a scenario
 
 ```bash
-.claude/skills/drive-check/drive.sh <name> <cols> <rows> '[[12,"/prismantis setup"],[2,"\r"],[8,"\u001b[B"],[1,"\r"],[5,""]]'
+.agents/skills/drive-check/drive.sh <name> <cols> <rows> '[[12,"/prismantis setup"],[2,"\r"],[8,"\u001b[B"],[1,"\r"],[5,""]]'
 ```
 
 Steps are `[seconds to wait, keys to type]`. Keys: Down `\u001b[B`, Up `\u001b[A`, Tab `\t`, Enter `\r`, Esc `\u001b`. It prints the PNG path and the options that got saved. Read the PNG; do not grep the capture for words, color codes split them.
