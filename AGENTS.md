@@ -1,4 +1,12 @@
-# AGENTS.md
+# Project instructions
+
+## Agent compatibility
+
+These instructions apply to Codex, Claude, Copilot and Antigravity. Use this file as the source of truth. Read the workspace `../AGENTS.md` when it exists. Use `.agents/skills/<name>/SKILL.md` for project workflows. If the client has no skill loader, open the skill file and follow its instructions. Preserve explicit user invocation and approval requirements.
+
+Use the current client's available tools. Historical tool names describe operations: `AskUserQuestion` means structured questions, `TodoWrite` means task tracking, `Read` means file reading, `Bash` means shell execution, and `Agent` or `Task` means delegation. If a required tool is unavailable, report that before the dependent step. Never claim an independent review when no separate reviewer ran.
+
+Historical model names describe cost and capability roles: Sonnet is a balanced builder or reviewer, Haiku is a lightweight helper or persona, and Opus is the strongest creative model. Preserve these choices on Claude. On other providers, select an available model for the same role; do not pass Claude model IDs. If model selection is unavailable, disclose the limitation before delegated work. Keep task-specific budget limits, review rules and owner approval gates.
 
 Prismantis is a Claude Code mod that redraws assistant replies with themeable colors: tables, headings, lists, quotes, code, numbers, paths, links and mermaid diagrams. It ships as a single plugin from this repo, which is also its own marketplace.
 
@@ -86,8 +94,8 @@ Dependencies and licenses:
 
 | Skill | When |
 | --- | --- |
-| `.claude/skills/add-theme` | adding or renaming a color preset |
-| `.claude/skills/demo` | printing the demo reply to eyeball every feature |
-| `.claude/skills/live-check` | seeing a change render in a real session |
-| `.claude/skills/drive-check` | pressing keys in a pane or button before merging, in a throwaway config |
-| `.claude/skills/release` | cutting a version |
+| `.agents/skills/add-theme` | adding or renaming a color preset |
+| `.agents/skills/demo` | printing the demo reply to eyeball every feature |
+| `.agents/skills/live-check` | seeing a change render in a real session |
+| `.agents/skills/drive-check` | pressing keys in a pane or button before merging, in a throwaway config |
+| `.agents/skills/release` | cutting a version |
